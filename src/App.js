@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import MenuSuperior from './components/MenuSuperior';
+import InclusaoLivros from './components/InclusaoLivros';
+import ManutencaoLivros from './components/ManutencaoLivros';
+import ResumoLivros from './components/ResumoLivros'; 
+import {Routes, Route} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+const App = () => {
+  return ( // tudo que vai no return é o que aparece na aplicação
+ <>
+ <MenuSuperior/>
+ <Routes>
+  <Route path="/" element={<InclusaoLivros/>}/>
+  <Route path="/manutencao" element={<ManutencaoLivros/>}/>
+  <Route path="/resumo" element={<ResumoLivros/>}/>
+ </Routes>
+ </>
   );
 }
+
+
+// serão criados 3 componentes para essa aplicação
+//MenuSuperior.js
+//InclusaoLivros.js
 
 export default App;
